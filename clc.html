@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    
+
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:yellow;
+}
+
+.calculator{
+    background:#333;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+#display{
+    width:100%;
+    height:60px;
+    font-size:28px;
+    text-align:right;
+    padding:10px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,70px);
+    gap:10px;
+}
+
+button{
+    height:60px;
+    border:none;
+    border-radius:10px;
+    font-size:22px;
+    cursor:pointer;
+    background:#555;
+    color:white;
+    transition:.3s;
+}
+
+button:hover{
+    background:#777;
+}
+
+.zero{
+    grid-column:span 2;
+}
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+
+        <div class="buttons">
+            <button>C</button>
+            <button>/</button>
+            <button>*</button>
+            <button>⌫</button>
+
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>-</button>
+
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>+</button>
+
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>=</button>
+
+            <button class="zero">0</button>
+            <button>.</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById("display");
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const value = button.innerText;
+
+        if(value === "C"){
+            display.value = "";
+        }
+
+        else if(value === "="){
+            try{
+                display.value = eval(display.value);
+            }
+            catch{
+                display.value = "Error";
+            }
+        }
+
+        else if(value === "⌫"){
+            display.value = display.value.slice(0,-1);
+        }
+
+        else{
+            display.value += value;
+        }
+
+    });
+
+});
+    </script>
+</body>
+</html>
