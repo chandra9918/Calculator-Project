@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+             font-family:Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color: rgb(34, 172, 207);
+        }
+
+        h1{
+            text-align: center;
+            font-family: serif;
+            
+        }
+
+        form{
+            background-color:gainsboro;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            border: 2px solid red;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 7px black;
+            margin: 0 auto;
+            margin-top: 100px;
+
+        }
+
+        .display input{
+            width: 280px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: gainsboro;
+        }
+
+        .row1{
+            padding: 5px;
+            border: 2px solid rgb(14, 13, 13);
+            border-radius: 4px;
+            margin: 5px;
+            width: 280px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .row1 input{
+            padding: 10px;
+            background-color: rgb(227, 141, 196);
+            color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px black;
+        }
+    </style>
+</head>
+<body>
+      
+    
+    <form action="">
+
+       <h1>CALCULATOR</h1><br>
+
+        <div class="display">
+            <input type="text" name="display">
+        </div> <br>
+
+        <div class="row1">
+            <input type="button" value="AC" onclick="display.value=''">
+            <input type="button" value="DEL" onclick="display.value=display.value.toString().slice(0,-1)">
+            <input type="button" value="." onclick="display.value +='.'">
+            <input type="button" value="*" onclick="display.value+='*'">
+        </div>
+
+        <div class="row1">
+            <input type="button" value="7" onclick="display.value+='7'">
+            <input type="button" value="8" onclick="display.value+='8'">
+            <input type="button" value="9" onclick="display.value+='9'">
+            <input type="button" value="/" onclick="display.value+='/'">
+        </div>
+
+        <div class="row1">
+            <input type="button" value="4" onclick="display.value+='4'">
+            <input type="button" value="5" onclick="display.value+='5'">
+            <input type="button" value="6" onclick="display.value+='6'">
+            <input type="button" value="+" onclick="display.value+='+'">
+        </div>
+
+        <div class="row1">
+            <input type="button" value="1" onclick="display.value+='1'">
+            <input type="button" value="2" onclick="display.value+='2'">
+            <input type="button" value="3" onclick="display.value+='3'">
+            <input type="button" value="-" onclick="display.value+='-'">
+        </div>
+
+        <div class="row1">
+            <input type="button" value="0" onclick="display.value+='0'">
+            <input type="button" value="00" onclick="display.value+='00'">
+            <input type="button" value="%" onclick="display.value=display.value/100">
+            <input type="button" value="=" onclick="display.value=eval(display.value)">
+            
+        </div>
+    </form>
+</body>
+</html>
